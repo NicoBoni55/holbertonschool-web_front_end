@@ -23,7 +23,7 @@ html {
     --line-height-small: 1.2;
     --line-height-base: 1.5;
     --line-height-big: 1.8;
-    --section-header-aling: center;
+    --section-header-align: center;
 }
 
 body{
@@ -53,7 +53,7 @@ a{
 }
 
 .section-header{
-    text-align: var(--section-header-aling);
+    text-align: var(--section-header-align);
 }
 
 .section-tagline{
