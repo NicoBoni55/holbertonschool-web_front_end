@@ -13,11 +13,11 @@ $text-color-2: #FF0000;
 }
 
 .success {
-    @extend %info-base;
+    @extend .info;
     color: $text-color-1;
 }
 
 .warning {
-    @extend %info-base;
+    @extend .info;
     color: $text-color-2;
 }
