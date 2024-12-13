@@ -1,18 +1,15 @@
 /* Extend */
-$font-size: 12px;
-$text-color-1: #00FF00;
-$text-color-2: #FF0000;
 
 .info {
-    font-size: $font-size;
+    font-size: 12px;
 }
 
 .success {
     @extend .info;
-    color: $text-color-1;
+    color: #00FF00;
 }
 
 .warning {
     @extend .info;
-    color: $text-color-2;
+    color: #FF0000;
 }
