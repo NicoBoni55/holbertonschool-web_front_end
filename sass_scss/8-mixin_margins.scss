@@ -1,0 +1,13 @@
+/* Margin mix */
+$margin-body: 10px;
+$margin-div: 15px;
+
+body {
+    margin-left: $margin-body;
+    margin-right: $margin-body;
+}
+
+div {
+    margin-left: $margin-div;
+    margin-right: $margin-div;
+}
