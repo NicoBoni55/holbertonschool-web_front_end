@@ -3,13 +3,8 @@ $font-size: 12px;
 $text-color-1: #00FF00;
 $text-color-2: #FF0000;
 
-%info-base {
-    font-size: $font-size;
-}
-
-
 .info {
-    @extend %info-base;
+    font-size: $font-size;
 }
 
 .success {
