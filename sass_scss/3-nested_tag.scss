@@ -1,0 +1,12 @@
+/* Write Nested tag */
+$no_variable : 0;
+$margin_p: 10px;
+
+body {
+    margin: $no_variable;
+    padding: $no_variable;
+
+    p {
+        margin: $margin_p;
+    }
+}
