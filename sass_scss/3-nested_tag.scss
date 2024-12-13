@@ -5,8 +5,8 @@ $margin_p: 10px;
 body {
     margin: $no_variable;
     padding: $no_variable;
-    }
 
-    & p {
+    p {
         margin: $margin_p;
     }
+}
