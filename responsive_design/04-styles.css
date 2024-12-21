@@ -243,11 +243,8 @@
     /* Navbar
     ============================= */
 
-    :root {
-        --nav-item-margin: 0;
-    }
     
-
+    
     .nav {
         margin: 0;
         padding: 0;
@@ -293,11 +290,11 @@
         background-color: var(--color-primary);
         width: 100%;
     }
-
+    
     .navbar-menu {
         flex: 1;
     }
-
+    
     .header .nav {
         flex-direction: column;
         overflow: hidden;
@@ -308,6 +305,9 @@
     @media (max-width: 767px) {
         .navbar-menu {
             display: none;
+        }
+        :root {
+            --nav-item-margin: 0;
         }
     }
     /* Header
