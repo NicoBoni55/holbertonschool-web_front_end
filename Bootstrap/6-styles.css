@@ -1,0 +1,39 @@
+:root {
+    --btn-color-primary: #E0003C;
+    --btn-color-hover: #BC1340;
+    --card-border: 1rem;
+    --text-color: #8C8C8C;
+
+}
+
+.btn-primary {
+    background-color: var(--btn-color-primary);
+}
+
+.btn-primary:hover, .btn-outline-primary:hover{
+    background-color: var(--btn-color-hover);
+}
+
+.btn-outline-primary {
+    color: var(--btn-color-primary);
+    border-color: var(--btn-color-primary);
+}
+
+a, a:hover, a:focus {
+    color: var(--btn-color-primary)
+}
+
+.card {
+    border-color: var(--btn-color-primary);
+}
+
+
+.card-header{
+	background-color: var(--btn-color-primary);
+    color: white;
+	border-radius: var(--card-border);
+}
+
+.text-muted {
+    color: var(--text-color);
+}
