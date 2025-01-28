@@ -9,7 +9,11 @@ function createClassRoom(numbersOfStudents) {
                 console.error("seat must be a number.")
             }
         }
-        let students;  
+        let students = 0;
+          while (students >= numbersOfStudents) {
+            students[students += 1];
+        }
+        return 
     } else {
         console.error("numbersOfStudents must be a number.");
     }
