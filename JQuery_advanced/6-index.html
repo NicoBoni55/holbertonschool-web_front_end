@@ -9,6 +9,8 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 
+<form action=""></form>
+
 <body>
     <script type="application/javascript">
         function createFamilyTree() {
@@ -54,23 +56,32 @@
             const form = 
             `
             <form>
-                <input type="text">
-                <input type="text">
-            <select>
+                <input type="text" id="first">
+                <input type="text" id="last">
+            <select id="position">
                 <option value="before">Before</option>
                 <option value="after">After</option>
             </select>
-            <input type="submit"/>
+            </form>
             `
+
+            const submit = `<input type="submit"/>`
+
+            const firstName = document.getElementById("first").value
+            const lastName = document.getElementById("last").value
+            const position = document.getElementById("position").value
+
+            form.append(submit)
+
+            submit.click(addNewMember(firstName, lastName, position))
+
+            $("body").append(form)
+            
         }
 
-
         createFamilyTree();
-        addNewMember("Guillaume", "Salva");
-        addNewMember("Arielle", "Snizt");
-        addNewMember("Fanette", "Snizt");
-        addNewMember("Gerard", "Snizt");
-        addNewMember("Victor", "Salva");
+        createForm();
+        
     </script>
 </body>
 
