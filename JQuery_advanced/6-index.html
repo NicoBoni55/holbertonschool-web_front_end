@@ -9,8 +9,6 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 
-<form action=""></form>
-
 <body>
     <script type="application/javascript">
         function createFamilyTree() {
@@ -46,42 +44,44 @@
                 row.remove();
             })
 
-            if (position === "before") {
+            if (position === 'before') {
                 $("table > tbody").prepend(row)
             }
-            $("table > tbody").append(row)
+            else {
+                $("table > tbody").append(row)
+            }
         }
 
         function createForm() {
-            const form = 
-            `
-            <form>
-                <input type="text" id="first">
-                <input type="text" id="last">
-            <select id="position">
-                <option value="before">Before</option>
-                <option value="after">After</option>
-            </select>
-            </form>
-            `
+            const form = $(
+                `
+                <form>
+                    <input type="text"/>
+                    <input type="text"/>
+                    <select>
+                        <option value="before">Before</option>
+                        <option value="after">After</option>
+                    </select>
+                    <input type="submit" value="Add"/>
+                </form>
+                `
+            )
 
-            const submit = `<input type="submit"/>`
+            form.submit(function (event) {
+                event.preventDefault();
+                const firstName = $(this).find("input[type='text']").eq(0).val();
+                const lastName = $(this).find("input[type='text']").eq(1).val();
+                const position = $(this).find("select").val();
 
-            const firstName = document.getElementById("first").value
-            const lastName = document.getElementById("last").value
-            const position = document.getElementById("position").value
+                addNewMember(firstName, lastName, position);
+                $(this).find("input[type='text']").eq(0).val("");
+                $(this).find("input[type='text']").eq(1).val("");
+            })
 
-            form.append(submit)
-
-            submit.click(addNewMember(firstName, lastName, position))
-
-            $("body").append(form)
-            
+            $("body").prepend(form);
         }
-
         createFamilyTree();
         createForm();
-        
     </script>
 </body>
 
