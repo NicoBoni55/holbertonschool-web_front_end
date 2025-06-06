@@ -44,7 +44,45 @@
                    }
                 })
             }
+        function buildForm() {
+            const form = $("<form></form>")
+            $("body").append(form)
+            form.html(`
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" placeholder="Author">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" placeholder="Title">
+                    <input type="submit" id="submit" value="submit">
+                </div>`)
+            form.submit(function (event) {
+                event.preventDefault();
+                sendForm();
+            });
+        }
+        function sendForm() {
+            const form = $("form")
+            form.after("<p>About to send the query to the API</p>")
+
+            const data = {
+                title: form.find("input[name='title']").val(),
+                author: form.find("input[name='author']").val()
+            }
+
+            $.ajax({
+                url: "http://localhost:3000/posts",
+                method: "POST",
+                data: JSON.stringify(data),
+                success: function (response) {
+                    addPostRow(response)
+                },
+                error: function (error) {
+                    alert("Error sending the POST query")
+                }
+            })
+        }
         listPosts();
+        buildForm();
     </script>
   </body>
 </html>
