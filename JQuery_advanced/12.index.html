@@ -13,9 +13,18 @@
         <script>
         function addPostRow(data) {
             const p = $("<p></p>")
-            const span = $("<span></span>")
-            span.html(`Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`)
-            p.append(span)
+            p.attr("id", `row-${data.id}`)
+
+            const deletespan = $("<span></span>")
+            deletespan.html("(delete)")
+            deletespan.css("cursor", "pointer")
+            deletespan.click(function() {
+                deletePost(data.id)
+            })
+
+            const infoSpan = $("<span></span>")
+            infoSpan.html(`Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`)
+            p.append(deletespan).append(infoSpan)
             $("body").append(p)
         }
 
@@ -78,6 +87,19 @@
                 },
                 error: function (error) {
                     alert("Error sending the POST query")
+                }
+            })
+        }
+
+        function deletePost(id) {
+            $.ajax({
+                url: `http://localhost:3000/posts/${id}`,
+                method: "DELETE",
+                success: function (response) {
+                    $(`#row-${id}`).remove()
+                },
+                error: function (error) {
+                    alert("Post was not deleted")
                 }
             })
         }
